@@ -23,10 +23,10 @@ io.on("connection", (socket) => {
 
     console.log(`Connected users: ${users}`);
 
-    socket.on("clientMessage", (msgContent) => {
-        socket.emit("recebeuMsg", "Recebeu msg");
+    socket.on("sendMessage", (msgContent) => { //adiciona o receiver
+        console.log(msgContent)
 
-        socket.broadcast.emit("groupMessage", msgContent);
+        socket.broadcast.emit("sendMessage", msgContent);
     });
 });
 
